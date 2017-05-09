@@ -1,5 +1,6 @@
 <?php
 include ('lib/Producto.php');
+include ('lib/ConsultaProductos.php');
 
 
 
@@ -7,8 +8,8 @@ $oProducto1 = new Producto();
 $oProducto1->nombre="Nuevo Producto";
 $oProducto1->codigo="001";
 
-$oProducto2 = new Producto("Nuevo Producto 002",0,"002");
-$oProducto3 = new Producto("Nuevo Producto 003",0,"003");
+$oProducto2 = new Producto("Nuevo Producto 002",100000,"002");
+$oProducto3 = new Producto("Nuevo Producto 003",250000,"003");
 
 
 /*
@@ -38,10 +39,11 @@ $aProductos[2]=$oProducto3;
         
         
         <?php
+        $aProductos2 = new ConsultaProductos();
         
         
-        foreach ($aProductos as $oPro){
-        echo $oPro->codigo. "  " .$oPro->nombre;
+        foreach ($aProductos2->Lista() as $oPro){
+        echo $oPro->codigo. "  " .$oPro->nombre."/".$oPro->precio."/usd ".$oPro->totalUSD();
         echo "<br>";
         }
         

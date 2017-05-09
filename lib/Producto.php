@@ -12,6 +12,11 @@ class Producto{
         $this->codigo= $codigo;
     }
     
+    
+    public function totalUSD(){
+        return $this->precio /680;
+    }
+    
 }
 
 ?>
